@@ -29,7 +29,7 @@ function App() {
             ☰
           </button>
 
-          <a href="/Rohan_Resume.pdf" target="_blank" className="nav-button">
+          <a href="/resume.pdf" target="_blank" className="nav-button">
             Resume ↗
           </a>
 

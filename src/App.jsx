@@ -425,6 +425,15 @@ function App() {
                   LeetCode ↗
                 </a>
 
+                <a
+                  href="/resume.pdf"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  Resume ↗
+                </a>
+
               </div>
 
             </div>

@@ -1,591 +1,721 @@
 import "./App.css";
-import React, { useState } from "react";
+import { useState } from "react";
+
+import {
+  SiFlask,
+  SiSqlalchemy,
+  SiJavascript,
+  SiSqlite,
+  SiChartdotjs,
+  SiPython,
+  SiScikitlearn,
+  SiPandas,
+  SiNumpy
+} from "react-icons/si";
 
 function App() {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [activeCard, setActiveCard] = useState(null);
+
+  const openCard = (card) => {
+    setActiveCard(card);
+  };
+
+  const closeCard = (e) => {
+    e.stopPropagation();
+    setActiveCard(null);
+  };
+
   return (
     <div className="portfolio">
 
-      {/* ================= NAVBAR ================= */}
-      <nav className="navbar">
-        <div className="nav-container">
+      <main className={`card-stage ${activeCard ? "expanded" : ""}`}>
 
-          <a href="#home" className="logo">
-            Rohan<span>.</span>
-          </a>
+        {/* =====================================================
+            LEFT CARD - ABOUT
+        ===================================================== */}
 
-          <div className="nav-links">
-            <a href="#about" onClick={() => setMenuOpen(false)}>About</a>
-            <a href="#skills" onClick={() => setMenuOpen(false)}>Skills</a>
-            <a href="#projects" onClick={() => setMenuOpen(false)}>Projects</a>
-            <a href="#contact" onClick={() => setMenuOpen(false)}>Contact</a>
+        <section
+          className={`interactive-card about-card ${
+            activeCard === "about"
+              ? "active"
+              : activeCard
+              ? "inactive"
+              : ""
+          }`}
+          onClick={() => !activeCard && openCard("about")}
+        >
+
+          <div className="card-top">
+            <span>ABOUT ME</span>
+            <span>EXPLORE</span>
           </div>
 
-          <button
-            className="menu-toggle"
-            onClick={() => setMenuOpen(!menuOpen)}
-            aria-label="Toggle menu"
-          >
-            ☰
-          </button>
+          <div className="card-content">
 
-          <a href="/resume.pdf" target="_blank" className="nav-button">
-            Resume ↗
-          </a>
-
-        </div>
-      </nav>
-      {menuOpen && (
-        <div className="mobile-menu">
-
-          <a href="#about" onClick={() => setMenuOpen(false)}>
-            About
-          </a>
-
-          <a href="#skills" onClick={() => setMenuOpen(false)}>
-            Skills
-          </a>
-
-          <a href="#projects" onClick={() => setMenuOpen(false)}>
-            Projects
-          </a>
-
-          <a href="#contact" onClick={() => setMenuOpen(false)}>
-            Contact
-          </a>
-
-        </div>
-      )}
-
-
-      {/* ================= HERO ================= */}
-      <section id="home" className="hero">
-        <div className="hero-content">
-
-          <p className="hero-intro">
-            Hello, I'm Rohan 👋
-          </p>
-
-          <h1>
-            AI/ML &
-            <span>Full-Stack Developer.</span>
-          </h1>
-
-          <p className="hero-description">
-            BE student specializing in Artificial Intelligence & Machine Learning,
-            passionate about building real-world applications, exploring ML,
-            and solving problems with Data Structures & Algorithms.
-          </p>
-
-          <div className="hero-buttons">
-
-            <a href="#projects" className="primary-button">
-              View My Work
-            </a>
-
-            <a href="#contact" className="secondary-button">
-              Contact Me
-            </a>
-
-          </div>
-
-        </div>
-      </section>
-
-
-      {/* ================= ABOUT ================= */}
-      <section id="about" className="about-section">
-
-        <div className="section-container">
-
-          <div className="section-heading">
-            <p>ABOUT ME</p>
+            <p className="eyebrow">
+              A BIT MORE
+            </p>
 
             <h2>
-              Building with
-              <span> curiosity.</span>
+              A bit more
+              <br />
+              about me<span>.</span>
             </h2>
+
+            <p className="short-description">
+              Computer Science student focused on Artificial
+              Intelligence, Machine Learning, software
+              development and problem solving.
+            </p>
+
+          </div>
+
+          <div className="card-bottom">
+            <span>EXPLORE</span>
+            <span className="arrow">↗</span>
           </div>
 
 
-          <div className="about-content">
+          {/* =====================================================
+              EXPANDED ABOUT CARD
+          ===================================================== */}
 
-            <div className="about-main">
+          {activeCard === "about" && (
 
-              <p>
-                I'm a BE student specializing in Artificial Intelligence &
-                Machine Learning, with a strong interest in software
-                development and problem solving.
+            <div className="expanded-content about-expanded">
+
+              <button
+                className="close-button"
+                onClick={closeCard}
+              >
+                ×
+              </button>
+
+              <p className="expanded-eyebrow">
+                ABOUT ME
               </p>
 
-              <p>
-                I enjoy building practical applications, exploring
-                AI/ML concepts, and strengthening my fundamentals through
-                Data Structures & Algorithms.
-              </p>
+              <h1>
+                Building with
+                <br />
+                <span>curiosity.</span>
+              </h1>
 
-              <p>
-                Currently, I'm focused on becoming a stronger software
-                engineer by combining development, machine learning,
-                and consistent problem solving.
-              </p>
+              <div className="about-text">
 
-            </div>
+                <p>
+                  I'm a BE student specializing in Artificial
+                  Intelligence & Machine Learning, with a strong
+                  interest in software development and problem
+                  solving.
+                </p>
 
+                <p>
+                  I enjoy building practical applications,
+                  exploring AI/ML concepts and strengthening my
+                  fundamentals through Data Structures &
+                  Algorithms.
+                </p>
 
-            <div className="about-highlights">
+                <p>
+                  Currently, I'm focused on becoming a stronger
+                  software engineer by combining development,
+                  machine learning and consistent problem solving.
+                </p>
 
-              <div className="about-highlight">
-                <span>01</span>
-                <strong>AI / ML</strong>
-                <p>Exploring machine learning and data-driven applications.</p>
               </div>
 
-              <div className="about-highlight">
-                <span>02</span>
-                <strong>Development</strong>
-                <p>Building full-stack applications and real-world projects.</p>
+
+              {/* FOCUS + EDUCATION */}
+
+              <div className="about-details">
+
+                <div className="about-detail-block">
+
+                  <p className="detail-label">
+                    CURRENTLY FOCUSED ON
+                  </p>
+
+                  <div className="focus-list">
+
+                    <span>
+                      <b className="pill-icon">◈</b>
+                      AI / Machine Learning
+                    </span>
+
+                    <span>
+                      <b className="pill-icon">⌘</b>
+                      Full-Stack Development
+                    </span>
+
+                    <span>
+                      <b className="pill-icon">◇</b>
+                      Data Structures & Algorithms
+                    </span>
+
+                    <span>
+                      <b className="pill-icon">◎</b>
+                      Problem Solving
+                    </span>
+
+                  </div>
+
+                </div>
+
+
+                <div className="about-detail-block">
+
+                  <p className="detail-label">
+                    EDUCATION
+                  </p>
+
+                  <h3>
+                    B.E. Computer Science & Engineering
+                  </h3>
+
+                  <p className="detail-muted">
+                    Artificial Intelligence & Machine Learning
+                  </p>
+
+                  <div className="education-meta">
+
+                    <div>
+                      <strong>8.39</strong>
+                      <span>CGPA</span>
+                    </div>
+
+                    <div className="education-divider"></div>
+
+                    <div>
+                      <strong>BE</strong>
+                      <span>CSE - AIML</span>
+                    </div>
+
+                  </div>
+
+                </div>
+
               </div>
 
-              <div className="about-highlight">
-                <span>03</span>
-                <strong>DSA</strong>
-                <p>Consistently improving problem-solving fundamentals.</p>
+
+              {/* TECH STACK */}
+
+              <div className="about-stack">
+
+                <p className="detail-label">
+                  TECH STACK
+                </p>
+
+                <div className="stack-list">
+
+                  <span>
+                    <b className="stack-icon">🐍</b>
+                    Python
+                  </span>
+
+                  <span>
+                    <b className="stack-icon">◒</b>
+                    Flask
+                  </span>
+
+                  <span>
+                    <b className="stack-icon">⚛</b>
+                    React
+                  </span>
+
+                  <span>
+                    <b className="stack-icon">JS</b>
+                    JavaScript
+                  </span>
+
+                  <span>
+                    <b className="stack-icon">C</b>
+                    C++
+                  </span>
+
+                  <span>
+                    <b className="stack-icon">◉</b>
+                    SQL
+                  </span>
+
+                  <span>
+                    <b className="stack-icon">◆</b>
+                    Git
+                  </span>
+
+                  <span>
+                    <b className="stack-icon">◎</b>
+                    Scikit-learn
+                  </span>
+
+                </div>
+
               </div>
 
-            </div>
 
-          </div>
+              {/* LINKS */}
 
-        </div>
+              <div className="about-links">
 
-      </section>
-
-
-      {/* ================= SKILLS ================= */}
-      <section id="skills" className="skills-section">
-
-        <div className="section-container">
-
-          <div className="section-heading">
-            <p>SKILLS</p>
-
-            <h2>
-              Technologies I
-              <span> work with.</span>
-            </h2>
-          </div>
-
-
-          <div className="skills-grid">
-
-            {/* Languages */}
-            <div className="skill-group">
-
-              <span className="skill-number">01</span>
-
-              <h3>Languages</h3>
-
-              <div className="skill-list">
-                <span>C++</span>
-                <span>Python</span>
-                <span>JavaScript</span>
-                <span>Go</span>
-              </div>
-
-            </div>
-
-
-            {/* Web Development */}
-            <div className="skill-group">
-
-              <span className="skill-number">02</span>
-
-              <h3>Web Development</h3>
-
-              <div className="skill-list">
-                <span>HTML</span>
-                <span>CSS</span>
-                <span>React</span>
-                <span>Flask</span>
-              </div>
-
-            </div>
-
-
-            {/* AI / ML */}
-            <div className="skill-group">
-
-              <span className="skill-number">03</span>
-
-              <h3>AI / ML</h3>
-
-              <div className="skill-list">
-                <span>NumPy</span>
-                <span>Pandas</span>
-                <span>Matplotlib</span>
-                <span>Scikit-learn</span>
-              </div>
-
-            </div>
-
-
-            {/* Database & Tools */}
-            <div className="skill-group">
-
-              <span className="skill-number">04</span>
-
-              <h3>Database & Tools</h3>
-
-              <div className="skill-list">
-                <span>SQL</span>
-                <span>Git</span>
-                <span>GitHub</span>
-                <span>VS Code</span>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* ================= PROJECTS ================= */}
-      <section id="projects" className="projects-section">
-
-        <div className="section-container">
-
-          <div className="section-heading">
-            <p>PROJECTS</p>
-
-            <h2>
-              Things I've
-              <span> built.</span>
-            </h2>
-          </div>
-
-
-          {/* MediLink */}
-          <div className="project-card featured-project">
-
-            <div className="project-content">
-
-              <p className="project-number">01</p>
-
-              <h3>MediLink</h3>
-
-              <p className="project-description">
-                A full-stack healthcare management platform connecting patients, doctors, 
-                and hospitals through a unified system for appointments, medical records, prescriptions, and communication.
-              </p>
-
-              <div className="project-tech">
-                <span>Python</span>
-                <span>Flask</span>
-                <span>SQLAlchemy</span>
-                <span>JavaScript</span>
-                <span>SQLite</span>
-              </div>
-
-              <div className="project-links">
                 <a
-                  href="https://github.com/Rohan26096/MediLink"
+                  href="https://github.com/Rohan26096"
                   target="_blank"
-                  rel="noreferrer"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  GITHUB ↗
+                </a>
+
+                <a
+                  href="https://www.linkedin.com/in/rohan-m-414151369/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  LINKEDIN ↗
+                </a>
+
+                <a
+                  href="https://leetcode.com/u/rohan_m_24/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  LEETCODE ↗
+                </a>
+
+              </div>
+
+            </div>
+          )}
+
+        </section>
+
+
+        {/* =====================================================
+            CENTER CARD
+        ===================================================== */}
+
+        <section
+          className={`interactive-card profile-card ${
+            activeCard === "profile"
+              ? "active"
+              : activeCard
+              ? "inactive"
+              : ""
+          }`}
+          onClick={() => !activeCard && openCard("profile")}
+        >
+
+          <div className="card-top">
+
+            <span>PORTFOLIO</span>
+
+            <button
+              className="menu-button"
+              onClick={(e) => e.stopPropagation()}
+            >
+              ☰
+            </button>
+
+          </div>
+
+
+          <div className="profile-content">
+
+            <p className="profile-eyebrow">
+              HELLO, I'M
+            </p>
+
+            <h1>
+              Rohan<span>.</span>
+            </h1>
+
+            <h3>
+              AI/ML & Full-Stack
+              <br />
+              Developer
+            </h3>
+
+            <p>
+              BE student specializing in Artificial Intelligence
+              & Machine Learning, building real-world applications
+              and exploring modern technology.
+            </p>
+
+          </div>
+
+
+          <div className="profile-bottom">
+
+            <div className="social-preview">
+              <span>GH</span>
+              <span>LI</span>
+              <span>LC</span>
+            </div>
+
+            <span className="arrow">
+              ↓
+            </span>
+
+          </div>
+
+
+          {/* CENTER EXPANDED */}
+
+          {activeCard === "profile" && (
+
+            <div className="expanded-content profile-expanded">
+
+              <button
+                className="close-button"
+                onClick={closeCard}
+              >
+                ×
+              </button>
+
+              <p className="expanded-eyebrow">
+                AI/ML & FULL-STACK DEVELOPER
+              </p>
+
+              <h1>
+                Rohan<span>.</span>
+              </h1>
+
+              <h3>
+                Building things with code,
+                <br />
+                curiosity and purpose.
+              </h3>
+
+              <p className="profile-text">
+                I'm a BE student specializing in Artificial
+                Intelligence & Machine Learning. I enjoy building
+                practical applications, working across the full
+                stack, exploring machine learning and continuously
+                improving my problem-solving skills.
+              </p>
+
+              <div className="social-links">
+
+                <a
+                  href="https://github.com/Rohan26096"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                 >
                   GitHub ↗
                 </a>
-              </div>
-
-            </div>
-
-            <div className="project-visual">
-              <img src="/images/medilink.png" alt="MediLink project" />
-            </div>
-
-          </div>
-
-
-          {/* AgriTech */}
-          <div className="project-card">
-
-            <div className="project-content">
-
-              <p className="project-number">02</p>
-
-              <h3>AgriTech Decision Support System</h3>
-
-              <p className="project-description">
-                A machine learning-powered decision support system that recommends suitable crops 
-                and fertilizers based on soil nutrients and environmental conditions.
-              </p>
-
-              <div className="project-tech">
-                <span>Python</span>
-                <span>Flask</span>
-                <span>Scikit-learn</span>
-                <span>Pandas</span>
-                <span>NumPy</span>
-              </div>
-
-              <a
-                href="https://github.com/Rohan26096/AgriTech-Decision-Support-System"
-                target="_blank"
-                rel="noreferrer"
-              >
-                GitHub ↗
-              </a>
-
-            </div>
-
-            <div className="project-visual">
-              <img src="/images/agritech.png" alt="AgriTech project" />
-            </div>
-
-          </div>
-
-        </div>
-
-      </section>
-
-
-      {/* ================= CONTACT PLACEHOLDER ================= */}
-      <section id="contact" className="placeholder-section">
-        {/* ================= EDUCATION ================= */}
-        <section className="education-section">
-
-          <div className="section-container">
-
-            <div className="section-heading">
-              <p>EDUCATION</p>
-
-              <h2>
-                My academic
-                <span> journey.</span>
-              </h2>
-            </div>
-
-            <div className="education-card">
-
-              <div className="education-main">
-
-                <span className="education-year">
-                  BE • ARTIFICIAL INTELLIGENCE & MACHINE LEARNING
-                </span>
-
-                <h3>
-                  Bachelor of Engineering
-                </h3>
-
-                <p className="education-college">
-                  Artificial Intelligence & Machine Learning
-                </p>
-
-                <p className="education-description">
-                  Building a strong foundation in computer science while
-                  exploring software development, Data Structures &
-                  Algorithms, and Artificial Intelligence & Machine Learning.
-                </p>
-
-              </div>
-
-              <div className="education-score">
-
-                <strong>8.39</strong>
-
-                <span>CGPA</span>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-        {/* ================= CODING JOURNEY ================= */}
-        <section className="coding-section">
-
-          <div className="section-container">
-
-            <div className="section-heading">
-              <p>CODING JOURNEY</p>
-
-              <h2>
-                Consistency over
-                <span> perfection.</span>
-              </h2>
-            </div>
-
-            <div className="coding-content">
-
-              <div className="coding-main">
-
-                <span className="coding-label">
-                  200 DAYS OF CODE
-                </span>
-
-                <h3>
-                  Solving problems,
-                  <span> one day at a time.</span>
-                </h3>
-
-                <p>
-                  I'm working through a 200-day Data Structures and Algorithms
-                  challenge on LeetCode. The journey has taken me through arrays,
-                  recursion, graphs, dynamic programming and many other core
-                  problem-solving patterns.
-                </p>
 
                 <a
-                    href="https://leetcode.com/u/rohan_m_24/"
-                    target="_blank"
-                    rel="noreferrer"
+                  href="https://www.linkedin.com/in/rohan-m-414151369/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
                 >
-                    View LeetCode ↗
+                  LinkedIn ↗
+                </a>
+
+                <a
+                  href="https://leetcode.com/u/rohan_m_24/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  LeetCode ↗
                 </a>
 
               </div>
 
+            </div>
+          )}
 
-              <div className="coding-stats">
+        </section>
 
-                <div className="coding-stat">
-                  <strong>180+</strong>
-                  <span>Challenge Days</span>
-                </div>
 
-                <div className="coding-stat">
-                  <strong>200</strong>
-                  <span>Day Goal</span>
-                </div>
+        {/* =====================================================
+            RIGHT CARD - PROJECTS
+        ===================================================== */}
 
-                <div className="coding-stat">
-                  <strong>DSA</strong>
-                  <span>Focus Area</span>
-                </div>
+        <section
+          className={`interactive-card projects-card ${
+            activeCard === "projects"
+              ? "active"
+              : activeCard
+              ? "inactive"
+              : ""
+          }`}
+          onClick={() => !activeCard && openCard("projects")}
+        >
 
-                <div className="coding-stat">
-                  <strong>200</strong>
-                  <span>Day Challenge</span>
-                </div>
+          <div className="card-top">
+            <span>SELECTED</span>
+            <span>WORK</span>
+          </div>
 
+
+          <div className="card-content">
+
+            <p className="eyebrow">
+              RECENT
+            </p>
+
+            <h2>
+              Recent
+              <br />
+              projects<span>.</span>
+            </h2>
+
+            <div className="project-preview">
+
+              <div>
+                <strong>MediLink</strong>
+                <span>Healthcare Platform</span>
               </div>
 
+              <span>↗</span>
+
+            </div>
+
+            <div className="project-preview">
+
+              <div>
+                <strong>AgriTech</strong>
+                <span>AI / ML System</span>
+              </div>
+
+              <span>↗</span>
+
             </div>
 
           </div>
 
-        </section>
-        {/* ================= CONTACT ================= */}
-        <section id="contact" className="contact-section">
 
-          <div className="section-container">
+          <div className="card-bottom">
 
-            <div className="section-heading">
-              <p>CONTACT</p>
+            <span>
+              VIEW WORK
+            </span>
 
-              <h2>
-                Let's build something
-                <span> together.</span>
-              </h2>
+            <span className="arrow">
+              ↗
+            </span>
 
-              <p className="contact-description">
-                Have an idea, opportunity, or just want to connect?
-                Feel free to reach out.
+          </div>
+
+
+          {/* RIGHT EXPANDED */}
+
+          {activeCard === "projects" && (
+
+            <div className="expanded-content projects-expanded">
+
+              <button
+                className="close-button"
+                onClick={closeCard}
+              >
+                ×
+              </button>
+
+              <p className="expanded-eyebrow">
+                SELECTED WORK
               </p>
+
+              <h1>
+                Recent
+                <br />
+                <span>projects.</span>
+              </h1>
+
+
+              {/* MEDILINK */}
+
+              <article className="project-item">
+
+                <div className="project-title">
+
+                  <div>
+
+                    <span>MediLink</span>
+
+                    <h2>
+                      Healthcare Management Platform
+                    </h2>
+
+                  </div>
+
+                  <span className="project-category">
+                    FULL-STACK
+                  </span>
+
+                </div>
+
+                <p>
+                  A full-stack healthcare management platform
+                  connecting patients, doctors, hospitals and
+                  administrators through a unified system.
+                </p>
+
+                <div className="project-tags">
+
+                  <span>
+                    <SiFlask />
+                    Flask
+                  </span>
+
+                  <span>
+                    <SiSqlalchemy />
+                    SQLAlchemy
+                  </span>
+
+                  <span>
+                    <SiJavascript />
+                    JavaScript
+                  </span>
+
+                  <span>
+                    <SiSqlite />
+                    SQLite
+                  </span>
+
+                  <span>
+                    <SiChartdotjs />
+                    Chart.js
+                  </span>
+
+                </div>
+
+                <a
+                  href="https://github.com/Rohan26096/MediLink"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  SOURCE CODE ↗
+                </a>
+
+              </article>
+
+
+              {/* AGRITECH */}
+
+              <article className="project-item">
+
+                <div className="project-title">
+
+                  <div>
+
+                    <span>AgriTech</span>
+
+                    <h2>
+                      Decision Support System
+                    </h2>
+
+                  </div>
+
+                  <span className="project-category">
+                    AI / ML
+                  </span>
+
+                </div>
+
+                <p>
+                  An AI-powered agriculture platform providing
+                  crop recommendations, fertilizer suggestions,
+                  soil analysis, irrigation guidance and
+                  agricultural insights.
+                </p>
+
+                <div className="project-tags">
+
+                  <span>
+                    <SiPython />
+                    Python
+                  </span>
+
+                  <span>
+                    <SiFlask />
+                    Flask
+                  </span>
+
+                  <span>
+                    <SiScikitlearn />
+                    Scikit-learn
+                  </span>
+
+                  <span>
+                    <SiPandas />
+                    Pandas
+                  </span>
+
+                  <span>
+                    <SiNumpy />
+                    NumPy
+                  </span>
+
+                </div>
+
+                <a
+                  href="https://github.com/Rohan26096/AgriTech-Decision-Support-System"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  SOURCE CODE ↗
+                </a>
+
+              </article>
+
             </div>
-
-
-            <div className="contact-links">
-
-              <a
-                href="mailto:rohan.muni.24@gmail.com"
-                className="contact-card"
-              >
-                <div>
-                  <span className="contact-label">EMAIL</span>
-                  <strong>rohan.muni.24@gmail.com</strong>
-                </div>
-
-                <span className="contact-arrow">↗</span>
-              </a>
-
-
-              <a
-                href="https://www.linkedin.com/in/rohan-m-414151369/"
-                target="_blank"
-                rel="noreferrer"
-                className="contact-card"
-              >
-                <div>
-                  <span className="contact-label">LINKEDIN</span>
-                  <strong>Connect with me</strong>
-                </div>
-
-                <span className="contact-arrow">↗</span>
-              </a>
-
-
-              <a
-                href="https://github.com/Rohan26096"
-                target="_blank"
-                rel="noreferrer"
-                className="contact-card"
-              >
-                <div>
-                  <span className="contact-label">GITHUB</span>
-                  <strong>Rohan26096</strong>
-                </div>
-
-                <span className="contact-arrow">↗</span>
-              </a>
-
-            </div>
-
-          </div>
+          )}
 
         </section>
 
-      </section>
-      {/* ================= FOOTER ================= */}
-      <footer className="footer">
+      </main>
 
-        <div className="footer-container">
 
-          <p>
-            © 2026 Rohan. Built with React.
-          </p>
+      {/* =====================================================
+          BOTTOM BAR
+      ===================================================== */}
 
-          <div className="footer-links">
+      {!activeCard && (
+
+        <footer className="bottom-bar">
+
+          <span className="footer-name">
+            ROHAN M
+          </span>
+
+          <div className="bottom-links">
 
             <a
               href="https://github.com/Rohan26096"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
-              GitHub
+              GITHUB
             </a>
 
             <a
               href="https://www.linkedin.com/in/rohan-m-414151369/"
               target="_blank"
-              rel="noreferrer"
+              rel="noopener noreferrer"
             >
-              LinkedIn
+              LINKEDIN
             </a>
 
-            <a href="mailto:rohan.muni.24@gmail.com">
-              Email
+            <a
+              href="https://leetcode.com/u/rohan_m_24/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              LEETCODE
             </a>
 
           </div>
 
-        </div>
-
-      </footer>
+        </footer>
+      )}
 
     </div>
   );

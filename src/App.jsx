@@ -311,13 +311,6 @@ function App() {
 
             <span>PORTFOLIO</span>
 
-            <button
-              className="menu-button"
-              onClick={(e) => e.stopPropagation()}
-            >
-              ☰
-            </button>
-
           </div>
 
 

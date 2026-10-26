@@ -41,11 +41,9 @@ button {
   padding: 22px;
 
   background:
-    radial-gradient(
-      circle at center,
+    radial-gradient(circle at center,
       rgba(255, 255, 255, 0.035),
-      transparent 42%
-    ),
+      transparent 42%),
     #050505;
 }
 
@@ -55,15 +53,13 @@ button {
 ========================================================= */
 
 .card-stage {
-  height: calc(100vh - 85px);
+  height: calc(100vh - 88px);
   min-height: 620px;
 
   display: grid;
 
   grid-template-columns:
-    0.9fr
-    1.3fr
-    0.9fr;
+    0.9fr 1.3fr 0.9fr;
 
   gap: 14px;
 
@@ -81,17 +77,14 @@ button {
   overflow: hidden;
 
   border:
-    1px solid
-    rgba(255, 255, 255, 0.09);
+    1px solid rgba(255, 255, 255, 0.09);
 
   border-radius: 28px;
 
   background:
-    linear-gradient(
-      145deg,
+    linear-gradient(145deg,
       rgba(255, 255, 255, 0.055),
-      rgba(255, 255, 255, 0.012)
-    );
+      rgba(255, 255, 255, 0.012));
 
   cursor: pointer;
 
@@ -161,11 +154,9 @@ button {
   overflow-y: auto;
 
   background:
-    radial-gradient(
-      circle at 70% 15%,
+    radial-gradient(circle at 70% 15%,
       rgba(255, 255, 255, 0.045),
-      transparent 35%
-    ),
+      transparent 35%),
     #0b0b0b;
 
   transition:
@@ -185,8 +176,7 @@ button {
   opacity: 0;
 
   transform:
-    scale(0.96)
-    translateY(10px);
+    scale(0.96) translateY(10px);
 
   pointer-events: none;
 
@@ -232,7 +222,7 @@ button {
   left: 30px;
   right: 30px;
 
-  bottom: 90px;
+  bottom: 80px;
 }
 
 .eyebrow {
@@ -325,16 +315,12 @@ button {
 
 .profile-card {
   background:
-    radial-gradient(
-      circle at 50% 40%,
+    radial-gradient(circle at 50% 40%,
       rgba(255, 255, 255, 0.07),
-      transparent 42%
-    ),
-    linear-gradient(
-      145deg,
+      transparent 42%),
+    linear-gradient(145deg,
       rgba(255, 255, 255, 0.06),
-      rgba(255, 255, 255, 0.015)
-    );
+      rgba(255, 255, 255, 0.015));
 }
 
 .profile-content {
@@ -391,7 +377,7 @@ button {
   font-weight: 400;
 }
 
-.profile-content > p {
+.profile-content>p {
   max-width: 390px;
 
   margin-top: 23px;
@@ -438,8 +424,7 @@ button {
   justify-content: center;
 
   border:
-    1px solid
-    rgba(255, 255, 255, 0.1);
+    1px solid rgba(255, 255, 255, 0.1);
 
   border-radius: 50%;
 
@@ -483,25 +468,20 @@ button {
   inset: 0;
 
   padding:
-    65px
-    8vw
-    60px;
+    65px 8vw 60px;
 
   overflow-y: auto;
 
   background:
-    radial-gradient(
-      circle at 70% 15%,
+    radial-gradient(circle at 70% 15%,
       rgba(255, 255, 255, 0.04),
-      transparent 32%
-    ),
+      transparent 32%),
     #0b0b0b;
 
   opacity: 0;
 
   transform:
-    translateY(18px)
-    scale(0.985);
+    translateY(18px) scale(0.985);
 
   transition:
     opacity 0.6s ease,
@@ -514,30 +494,20 @@ button {
   opacity: 1;
 
   transform:
-    translateY(0)
-    scale(1);
+    translateY(0) scale(1);
 
   transition-delay: 0.35s;
 }
 
-.active .expanded-content {
-  opacity: 1;
-
-  transform:
-    translateY(0)
-    scale(1);
-
-  transition-delay: 0.25s;
-}
 
 
 /* Hide original content */
 
-.active > .card-top,
-.active > .card-content,
-.active > .card-bottom,
-.active > .profile-content,
-.active > .profile-bottom {
+.active>.card-top,
+.active>.card-content,
+.active>.card-bottom,
+.active>.profile-content,
+.active>.profile-bottom {
   opacity: 0;
 
   pointer-events: none;
@@ -566,8 +536,7 @@ button {
   justify-content: center;
 
   border:
-    1px solid
-    rgba(255, 255, 255, 0.12);
+    1px solid rgba(255, 255, 255, 0.12);
 
   border-radius: 50%;
 
@@ -663,8 +632,7 @@ button {
   display: grid;
 
   grid-template-columns:
-    1.15fr
-    0.85fr;
+    1.15fr 0.85fr;
 
   gap: 75px;
 
@@ -673,8 +641,7 @@ button {
   padding-top: 35px;
 
   border-top:
-    1px solid
-    rgba(255, 255, 255, 0.09);
+    1px solid rgba(255, 255, 255, 0.09);
 }
 
 .about-detail-block {
@@ -722,8 +689,7 @@ button {
     0 25px;
 
   border:
-    1px solid
-    #292929;
+    1px solid #292929;
 
   border-radius: 999px;
 
@@ -843,8 +809,7 @@ button {
   padding-top: 40px;
 
   border-top:
-    1px solid
-    #222;
+    1px solid #222;
 }
 
 .stack-list {
@@ -869,8 +834,7 @@ button {
     0 23px;
 
   border:
-    1px solid
-    #292929;
+    1px solid #292929;
 
   border-radius: 999px;
 
@@ -958,9 +922,7 @@ button {
   text-align: center;
 
   padding:
-    65px
-    8vw
-    60px;
+    65px 8vw 60px;
 }
 
 .profile-expanded .expanded-eyebrow {
@@ -1025,38 +987,7 @@ button {
 
   margin-top: 32px;
 }
-.profile-expanded h1 {
-  margin-top: 18px;
 
-  color: #eeeeee;
-
-  font-size:
-    clamp(65px, 7vw, 105px);
-
-  line-height: 0.88;
-
-  font-weight: 400;
-
-  letter-spacing: -5px;
-}
-
-.profile-expanded h1 span {
-  color: #777;
-}
-
-.profile-expanded h3 {
-  max-width: 900px;
-
-  margin-top: 48px;
-
-  color: #929292;
-
-  font-size: 15px;
-
-  line-height: 1.8;
-
-  font-weight: 400;
-}
 
 .profile-text {
   max-width: 900px;
@@ -1114,8 +1045,7 @@ button {
   padding: 13px 0;
 
   border-bottom:
-    1px solid
-    rgba(255, 255, 255, 0.08);
+    1px solid rgba(255, 255, 255, 0.08);
 }
 
 .project-preview:first-of-type {
@@ -1142,7 +1072,7 @@ button {
   font-size: 9px;
 }
 
-.project-preview > span {
+.project-preview>span {
   color: #888;
 
   font-size: 15px;
@@ -1185,8 +1115,7 @@ button {
   padding-bottom: 35px;
 
   border-bottom:
-    1px solid
-    rgba(255, 255, 255, 0.09);
+    1px solid rgba(255, 255, 255, 0.09);
 }
 
 .project-title {
@@ -1199,10 +1128,10 @@ button {
   gap: 20px;
 }
 
-.project-title > div > span {
+.project-title>div>span {
   color: #666;
 
-  font-size: 9px;
+  font-size: 14px;
 
   font-weight: 600;
 
@@ -1233,7 +1162,7 @@ button {
   letter-spacing: 2px;
 }
 
-.project-item > p {
+.project-item>p {
   max-width: 900px;
 
   margin-top: 24px;
@@ -1275,8 +1204,7 @@ button {
     0 23px;
 
   border:
-    1px solid
-    #292929;
+    1px solid #292929;
 
   border-radius: 999px;
 
@@ -1313,7 +1241,7 @@ button {
   flex-shrink: 0;
 }
 
-.project-item > a {
+.project-item>a {
   display: inline-block;
 
   margin-top: 24px;
@@ -1328,7 +1256,7 @@ button {
     color 0.3s ease;
 }
 
-.project-item > a:hover {
+.project-item>a:hover {
   color: white;
 }
 
@@ -1402,9 +1330,7 @@ button {
 
   .card-stage {
     grid-template-columns:
-      0.85fr
-      1.2fr
-      0.85fr;
+      0.85fr 1.2fr 0.85fr;
 
     gap: 10px;
   }
@@ -1416,8 +1342,7 @@ button {
 
   .expanded-content {
     padding:
-      65px
-      45px;
+      65px 45px;
   }
 }
 
@@ -1426,7 +1351,7 @@ button {
    MOBILE
 ========================================================= */
 
-@media (max-width: 700px) {
+@media (max-width: 900px) {
 
   .portfolio {
     padding: 10px;
@@ -1440,27 +1365,12 @@ button {
     gap: 6px;
   }
 
-  .interactive-card {
-    height: 31vh;
-    min-height: 270px;
-    border-radius: 22px;
-  }
-
-  /* PROJECTS CARD */
-  .projects-card {
-    height: 35vh;
-    min-height: 350px;
-  }
-
-  .profile-card {
-    order: -1;
-    height: 45vh;
-    min-height: 380px;
-  }
 
   .card-stage.expanded {
     display: block;
-    height: calc(100vh - 20px);
+
+    height: 100vh;
+    height: 100dvh;
   }
 
   .card-stage.expanded .interactive-card {
@@ -1470,32 +1380,46 @@ button {
     height: 100%;
   }
 
-  .card-top {
-    top: 20px;
-    left: 20px;
-    right: 20px;
+  .interactive-card {
+    height: auto;
+    min-height: 300px;
+    padding: 20px;
+    border-radius: 22px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 24px;
   }
 
-  .card-content {
-    left: 20px;
-    right: 20px;
-    bottom: 70px;
+  .projects-card {
+    height: auto;
+    min-height: 340px;
+  }
+
+  .profile-card {
+    order: -1;
+    height: auto;
+    min-height: 420px;
+    padding: 24px;
+  }
+
+  /* put children back in normal flow so they can't overlap */
+  .card-top,
+  .card-content,
+  .card-bottom,
+  .profile-content,
+  .profile-bottom {
+    position: static;
+    transform: none;
+  }
+
+  /* center the hero text between its top label and bottom icons */
+  .profile-content {
+    margin: auto 0;
   }
 
   .card-content h2 {
     font-size: 37px;
-  }
-
-  .card-bottom {
-    left: 20px;
-    right: 20px;
-    bottom: 20px;
-  }
-
-  .profile-content {
-    left: 24px;
-    right: 24px;
-    top: 40%;
   }
 
   .profile-content h1 {
@@ -1507,14 +1431,12 @@ button {
     font-size: 18px;
   }
 
-  .profile-content > p {
+  .profile-content>p {
     font-size: 11px;
   }
 
-  .profile-bottom {
-    left: 24px;
-    right: 24px;
-    bottom: 20px;
+  .eyebrow {
+    display: none;
   }
 
   /* EXPANDED */
@@ -1602,11 +1524,11 @@ button {
     font-size: 13px;
   }
 
-  .profile-text {
+  .profile-expanded .profile-text {
     font-size: 13px;
   }
 
-  .social-links {
+  .profile-expanded .social-links {
     gap: 18px;
     margin-top: 30px;
   }
@@ -1630,7 +1552,7 @@ button {
     margin-top: 8px;
   }
 
-  .project-item > p {
+  .project-item>p {
     font-size: 12px;
   }
 
@@ -1699,8 +1621,4 @@ button {
   font-size: 12px;
 
   letter-spacing: 2.5px;
-}
-/* PROJECT NAME SIZE */
-.project-title > div > span {
-    font-size: 14px !important;
 }

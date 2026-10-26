@@ -10,7 +10,12 @@ import {
   SiPython,
   SiScikitlearn,
   SiPandas,
-  SiNumpy
+  SiNumpy,
+  SiReact,
+  SiVite,
+  SiTailwindcss,
+  SiExpress,
+  SiRazorpay
 } from "react-icons/si";
 
 function App() {
@@ -35,13 +40,12 @@ function App() {
         ===================================================== */}
 
         <section
-          className={`interactive-card about-card ${
-            activeCard === "about"
-              ? "active"
-              : activeCard
+          className={`interactive-card about-card ${activeCard === "about"
+            ? "active"
+            : activeCard
               ? "inactive"
               : ""
-          }`}
+            }`}
           onClick={() => !activeCard && openCard("about")}
         >
 
@@ -297,13 +301,12 @@ function App() {
         ===================================================== */}
 
         <section
-          className={`interactive-card profile-card ${
-            activeCard === "profile"
-              ? "active"
-              : activeCard
+          className={`interactive-card profile-card ${activeCard === "profile"
+            ? "active"
+            : activeCard
               ? "inactive"
               : ""
-          }`}
+            }`}
           onClick={() => !activeCard && openCard("profile")}
         >
 
@@ -440,13 +443,12 @@ function App() {
         ===================================================== */}
 
         <section
-          className={`interactive-card projects-card ${
-            activeCard === "projects"
-              ? "active"
-              : activeCard
+          className={`interactive-card projects-card ${activeCard === "projects"
+            ? "active"
+            : activeCard
               ? "inactive"
               : ""
-          }`}
+            }`}
           onClick={() => !activeCard && openCard("projects")}
         >
 
@@ -484,6 +486,17 @@ function App() {
               <div>
                 <strong>AgriTech</strong>
                 <span>AI / ML System</span>
+              </div>
+
+              <span>↗</span>
+
+            </div>
+
+            <div className="project-preview">
+
+              <div>
+                <strong>BurgerLab</strong>
+                <span>Full-Stack Web App</span>
               </div>
 
               <span>↗</span>
@@ -659,6 +672,74 @@ function App() {
 
                 <a
                   href="https://github.com/Rohan26096/AgriTech-Decision-Support-System"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  SOURCE CODE ↗
+                </a>
+
+              </article>
+
+              {/* BURGERLAB */}
+
+              <article className="project-item">
+
+                <div className="project-title">
+
+                  <div>
+
+                    <span>BurgerLab</span>
+
+                    <h2>
+                      Online Burger Ordering App
+                    </h2>
+
+                  </div>
+
+                  <span className="project-category">
+                    FULL-STACK
+                  </span>
+
+                </div>
+
+                <p>
+                  A full-stack burger ordering web application with a
+                  React frontend, an Express backend and Razorpay
+                  payment integration.
+                </p>
+
+                <div className="project-tags">
+
+                  <span>
+                    <SiReact />
+                    React
+                  </span>
+
+                  <span>
+                    <SiVite />
+                    Vite
+                  </span>
+
+                  <span>
+                    <SiTailwindcss />
+                    Tailwind CSS
+                  </span>
+
+                  <span>
+                    <SiExpress />
+                    Express
+                  </span>
+
+                  <span>
+                    <SiRazorpay />
+                    Razorpay
+                  </span>
+
+                </div>
+
+                <a
+                  href="https://github.com/Rohan26096/BurgerLab"
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={(e) => e.stopPropagation()}
